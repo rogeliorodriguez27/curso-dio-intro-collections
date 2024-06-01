@@ -84,16 +84,17 @@ class ExemploList {
         */
         System.out.println("Confira se a lista está vazia: " + notas.isEmpty());
 
-/*
-Para você: Resolva esses exercícios utilizando os métodos da implementação LinkedList:
+// Para você: Resolva esses exercícios utilizando os métodos da implementação LinkedList:
 
         System.out.println("Crie uma lista chamada notas2 " +
                 "e coloque todos os elementos da list Arraylist nessa nova lista: ");
 
+        //Generics(jdk 5) - Diamond Operator(jdk 7)
+        List<Double> notas2 = new ArrayList<Double>(notas);
         System.out.println("Mostre a primeira nota da nova lista sem removê-lo: ");
-
+        System.out.println(notas2.get(0).toString());
         System.out.println("Mostre a primeira nota da nova lista removendo-o: ");
-*/
-
+        System.out.println(notas2.remove(0));
+        System.out.println(notas2);
     }
 }
