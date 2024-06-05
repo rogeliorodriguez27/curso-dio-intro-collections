@@ -1,7 +1,6 @@
 package br.com.dio.collection.list;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,47 +16,45 @@ Se a pessoa responder positivamente a 2 questões ela deve ser classificada como
 */
 public class ExercicioProposto02 {
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
         List<String> respostas = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Perguntas: ");
-        System.out.print("\nTelefonou para vítima? ");
-        String resposta = scanner.next();
-        respostas.add(resposta.toLowerCase());
-        System.out.print("Esteve no local do crime? ");
-        resposta = scanner.next();
-        respostas.add(resposta.toLowerCase());
-        System.out.print("Mora perto da vítima? ");
-        resposta = scanner.next();
-        respostas.add(resposta.toLowerCase());
-        System.out.print("Devia para vítima? ");
-        resposta = scanner.next();
-        respostas.add(resposta.toLowerCase());
-        System.out.print("Já trabalhou com a vítima? ");
-        resposta = scanner.next();
-        respostas.add(resposta.toLowerCase());
+        System.out.println("Responda as perguntas usando Sim ou não (S/N):");
+        System.out.println("Telefonou para a vítima?");
+        String opcao = scan.next();
+        respostas.add(opcao);
+        System.out.println("Esteve no local do crime?");
+        opcao = scan.next();
+        respostas.add(opcao);
+        System.out.println("Mora perto da vítima?");
+        opcao = scan.next();
+        respostas.add(opcao);
+        System.out.println("Devia para a vítima?");
+        opcao = scan.next();
+        respostas.add(opcao);
+        System.out.println("Já trabalhou com a vítima?");
+        opcao = scan.next();
+        respostas.add(opcao);
 
-        System.out.println(respostas);
+        System.out.println("Clasificação:");
 
-        int count = 0;
-        Iterator<String> contador = respostas.iterator();
-        while(contador.hasNext()){
-            String resp = contador.next();
-            if(resp.contains("s")) {
-                count ++;
-            }
-        }
-
-        switch(count) {
+        int respostasPositivas = (int) respostas.stream().filter(resp-> resp.equalsIgnoreCase("S")).count();
+        switch (respostasPositivas){
             case 2:
-                System.out.println(">> SUSPEITA <<"); break;
+                System.out.println("Suspeita");
+                break;
             case 3:
             case 4:
-                System.out.println(">> CÚMPLICE <<"); break;
+                System.out.println("Complice");
+                break;
             case 5:
-                System.out.println(">> ASSASSINO <<"); break;
+                System.out.println("Assassina");
+                break;
             default:
-                System.out.println(">> INOCENTE <<"); break;
+                System.out.println("Inocente");
+                break;
         }
+
+
     }
 }
