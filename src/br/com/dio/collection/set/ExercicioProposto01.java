@@ -1,8 +1,6 @@
 package br.com.dio.collection.set;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /*
 Crie uma conjunto contendo as cores do arco-íris e:
@@ -33,5 +31,20 @@ public class ExercicioProposto01 {
         List<String> arcoIrisReverse = new ArrayList<>(arcoIris);
         Collections.reverse(arcoIrisReverse);
         System.out.println(arcoIrisReverse);
+
+        Iterator<String> iterator = arcoIris.iterator();
+        System.out.println(" Cores que começam com a letra v: ");
+        while(iterator.hasNext()){
+            String next = iterator.next();
+            if (next.startsWith("v")){
+                System.out.println(next);
+            iterator.remove();}
+        }
+        System.out.println("Outros: ");
+        System.out.println(arcoIris);
+
+        arcoIris.clear();
+        System.out.println("Conjunto vacio: " + arcoIris);
+
     }
 }
