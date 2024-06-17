@@ -136,5 +136,17 @@ listaLinguagens.add(
 
             }
 
-}}
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            LinguagemFavorita that = (LinguagemFavorita) o;
+            return anoCriacao == that.anoCriacao && Objects.equals(nome, that.nome) && Objects.equals(ide, that.ide);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(nome, anoCriacao, ide);
+        }
+    }}
 
